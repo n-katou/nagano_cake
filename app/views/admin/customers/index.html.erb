@@ -1,1 +1,22 @@
-顧客一覧画面
+<h1>会員一覧</h1>
+<table>
+  <thead>
+    <tr>
+      <th>会員ID</th>
+      <th>氏名</th>
+      <th>メールアドレス</th>
+      <th>ステータス</th>
+      <th colspan = "4"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @customers.each do |customer| %>
+    <tr>
+      <td><%= customer.id %></td>
+      <td><%= link_to customer.first_name,admin_customer_path(customer.id) %></td>
+      <td><%= customer.email %></td>
+      <td></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,1 +1,31 @@
-<h1>商品詳細画面</h1>
+<h1>商品詳細</h1>
+
+<div class="container" data-section-id="product" data-section-type="product-page-section" data-reviews-stars="true">
+
+  <div class="col-lg-6 col-md-7 col-sm-6">
+    <p><%= @item.image %></p>
+  </div>
+  <div class="col-lg-6 col-md-5 col-sm-6">
+    <table>
+      <tbody>
+        <tr>
+          <td>商品名</td>
+          <td><%= @item.name %></td>
+        </tr>
+        <tr>
+          <td>商品説明</td>
+          <td><%= @item.introduction %></td>
+        </tr>
+        <tr>
+          <td>ジャンル</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>販売ステータス</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+    <%= link_to "編集する" , edit_admin_item_path(@item.id) %>
+  </div>
+</div>

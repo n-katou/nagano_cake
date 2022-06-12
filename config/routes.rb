@@ -15,16 +15,28 @@ Rails.application.routes.draw do
   sessions: 'public/sessions'
   }
 
-  get "/" => "public/homes#top", as: "home"
+  root to: "public/homes#top"
   get "/about" => "public/homes#about", as: "about"
-
-  scope module: :public do
-  resources :customers, only:[:show,:edit,:update,:destroy]
-  resources :addresses, only:[:index,:edit,:create,:update,:destroy]
- end
  
+  post "/orders/confirm" => "public/orders#confirm", as: "confirm"
+  get "/orders/complete" => "public/orders#complete", as: "complete"
+  
+  scope module: :public do
+  resources :customers, only:[:update,:destroy]
+  resources :addresses, only:[:index,:edit,:create,:update,:destroy]
+  resources :items, only: [:index,:show]
+  resources :cart_items, only:[:index,:update,:destroy,:create]
+  resources :orders, only:[:new,:create,:index,:show]
+
+ end
+
  get "/customers/unsubscribe" => "public/customers#unsubscribe", as: "unsubscribe"
  patch "/customers/withdraw" => "public/customers#withdraw", as: "withdraw"
+ get "/customers/my_page" => "public/customers#show", as: "my_page"
+ get "/customers/edit_page" => "public/customers#edit", as: "edit_page"
+ patch "/customers/:id" => "public/customers#update" , as: "update"
+
+ delete "/cart_items/destroy_all" => "public/cart_items#destroy_all", as: "destroy_all"
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
