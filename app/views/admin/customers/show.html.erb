@@ -1,6 +1,5 @@
-
 <div class="container">
-  <h2><%= @customer.first_name %>さんの会員詳細</h2>
+  <h2><%= @customer.first_name + @customer.last_name %>さんの会員詳細</h2>
   <div class="row">
       <div class="col-md-4">
         <h4>会員ID</h4>
@@ -14,13 +13,12 @@
       </div>
       <div class="col-md-4">
         <p><%= @customer.id %></p>
-        <p><%= @customer.last_name %></p>
-        <%= @customer.last_name_kana %>
-        <%= @customer.postal_code %>
-        <%= @customer.address %>
-        <%= @customer.email %>
-        
+        <p><%= @customer.first_name + @customer.last_name %></p>
+        <p><%= @customer.last_name_kana %></p>
+        <p><%= @customer.postal_code %></p>
+        <p><%= @customer.address %></p>
+        <p><%= @customer.email %></p>
       </div>
   </div>
+      <%= link_to "編集する",edit_admin_customer_path(@customer.id) %>
 </div>
-
