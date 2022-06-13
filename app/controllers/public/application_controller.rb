@@ -7,4 +7,10 @@ class Public::ApplicationController < ApplicationController
     def after_sign_out_path_for(resource)
       new_customer_session
     end
+    
+     protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+  end
 end
