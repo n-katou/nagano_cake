@@ -3,7 +3,13 @@
 <div class="container" data-section-id="product" data-section-type="product-page-section" data-reviews-stars="true">
 
   <div class="col-lg-6 col-md-7 col-sm-6">
-    <p><%= @item.image %></p>
+    <p>
+      <% if @item.image.attached? %>
+        <%= image_tag @item.image, size: "100x100" %>
+      <% else %>
+        <%= image_tag 'no_image', size: "100x100" %>
+      <% end %>
+    </p>
   </div>
   <div class="col-lg-6 col-md-5 col-sm-6">
     <table>
