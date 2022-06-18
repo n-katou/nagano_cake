@@ -1,1 +1,23 @@
-商品詳細
+<div class="container" data-section-id="product" data-section-type="product-page-section" data-reviews-stars="true">
+  <div class="row">
+    <div class="col-lg-6 col-md-7 col-sm-6">
+      <p>
+        <% if @item.image.attached? %>
+          <%= image_tag @item.image, size: "100x100" %>
+        <% else %>
+          <%= image_tag 'no_image', size: "100x100" %>
+        <% end %>
+      </p>
+    </div>
+    <div class="col-lg-6 col-md-5 col-sm-6">
+      <h4>商品名         <%= @item.name %></h4>
+      <h4>商品説明       <%= @item.introduction %></h4>
+      <h4>￥<%= @item.price %></h4>
+      <%= form_with model: @item ,url: cart_items_path,method: :post do |f|  %>
+        <%= f.select :amount,*[1..10] %>
+        <%= f.hidden_field :amount,:value => @item.id %>
+        <%= f.submit "カートに入れる" %>
+      <% end %>
+    </div>
+  </div>
+</div>
