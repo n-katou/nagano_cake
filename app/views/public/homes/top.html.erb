@@ -1,2 +1,33 @@
-<h1>TOPページ</h1>
+<div class="container">
+  <div class="row">
+    <div class="col"></div>
+    <div class="col-md-5 m-5 p-5">
+    <p>ようこそ、ながのCAKEへ！</p>
+    <p>このサイトは、ケーキ販売のECサイトになります。</p>
+    <p>会員でない方も商品の閲覧はできますが、</p>
+    <p>購入には会員登録が必要になります。</p>
+    </div>
+    <div class="col"></div>
+  </div>
+  <h1>新着商品</h1>
+  <div class="row">
+    <div class="col">
+      <% @items.each do |item| %>
+      <table>
+        <tr>
+          <td>
+            <%= link_to item_path(item.id) do %>
+              <%= image_tag item.image,size: "100x100" %>
+            <% end %>
+          </td>
+          <td><%= item.name %></td>
+          <td><%= item.price %></td>
+        </tr>
+      </table>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
 
