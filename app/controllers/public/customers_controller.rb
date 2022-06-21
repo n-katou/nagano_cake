@@ -23,6 +23,7 @@ class Public::CustomersController < ApplicationController
 
   def withdraw
     @customer = Customer.find_by(email: params[:email])
+    # binding.pry
     @customer.update(is_active: false)
     reset_session
     redirect_to root_path
@@ -31,6 +32,7 @@ class Public::CustomersController < ApplicationController
   private
 
   def customer_params
+    # binding.pry
     params.require(:customer).permit(:last_name,:first_name,:last_name_kana,:first_name_kana,:email,:postal_code,:address,:telephone_number,:is_active)
   end
 

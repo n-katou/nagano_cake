@@ -10,20 +10,14 @@
     <div class="col"></div>
   </div>
   <h1>新着商品</h1>
-  <div class="row">
+  <div class="row-md-4">
     <div class="col">
       <% @items.each do |item| %>
-      <table>
-        <tr>
-          <td>
-            <%= link_to item_path(item.id) do %>
-              <%= image_tag item.image,size: "100x100" %>
-            <% end %>
-          </td>
-          <td><%= item.name %></td>
-          <td><%= item.price %></td>
-        </tr>
-      </table>
+        <%= link_to item_path(item.id) do %>
+          <%= image_tag item.image,size: "100x100" %><br>
+        <% end %>
+        <%= item.name %><br>
+        <%= item.price %><br>
       <% end %>
     </div>
   </div>

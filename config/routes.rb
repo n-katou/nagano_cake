@@ -23,6 +23,8 @@ Rails.application.routes.draw do
   
   
   delete "/cart_items/destroy_all" => "public/cart_items#destroy_all", as: "destroy_all"
+  get "/customers/unsubscribe" => "public/customers#unsubscribe", as: "unsubscribe"
+  patch "/customers/withdraw" => "public/customers#withdraw", as: "withdraw"
   
   scope module: :public do
   resources :customers, only:[:update,:destroy]
@@ -33,8 +35,7 @@ Rails.application.routes.draw do
 
  end
 
- get "/customers/unsubscribe" => "public/customers#unsubscribe", as: "unsubscribe"
- patch "/customers/withdraw" => "public/customers#withdraw", as: "withdraw"
+
  get "/customers/my_page" => "public/customers#show", as: "my_page"
  get "/customers/edit_page" => "public/customers#edit", as: "edit_page"
  patch "/customers/:id" => "public/customers#update" , as: "update"
