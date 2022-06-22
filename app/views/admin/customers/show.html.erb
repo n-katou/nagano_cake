@@ -1,0 +1,12 @@
+<h1><%= @customer.first_name + @customer.last_name %></h1>
+
+<h3>会員ID</h3> <%= @customer.id %>
+<h3>氏名</h3> <%= @customer.first_name + @customer.last_name %>
+<h3>カナ</h3> <%= @customer.first_name_kana + @customer.last_name_kana %>
+<h3>郵便番号</h3> <%= @customer.postal_code %>
+<h3>住所</h3> <%= @customer.address %>
+<h3>電話番号</h3> <%= @customer.telephone_number %>
+<h3>メールアドレス</h3> <%= @customer.email %>
+<h3>会員ステータス</h3> <%= @customer.is_active %>
+
+ <h3><%= link_to "編集する" ,edit_admin_customer_path(@customer.id) %> <%= link_to "注文履歴一覧を見る", admin_home_path %></h3>

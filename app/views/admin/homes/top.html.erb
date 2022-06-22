@@ -13,22 +13,22 @@
           </tr>
         </thead>
         <tbody>
-          <% @orders.each do |order| %>
+
           <tr>
             <td>
-              <%= order.created_at %>
+              created_at
             </td>
             <td>
-              <%= order.customer_id %>
+               order.customer_id
             </td>
             <td>
-              <%= order.oreder_item.amount %>
+              order.oreder_item.amount
             </td>
             <td>
               注文ステータス
             </td>
           </tr>
-          <% end %>
+
         </tbody>
       </table>
     </div>

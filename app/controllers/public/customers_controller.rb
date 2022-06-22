@@ -22,7 +22,7 @@ class Public::CustomersController < ApplicationController
   end
 
   def withdraw
-    @customer = Customer.find_by(email: params[:email])
+    @customer = current_customer
     # binding.pry
     @customer.update(is_active: false)
     reset_session
