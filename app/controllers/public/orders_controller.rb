@@ -1,21 +1,20 @@
 class Public::OrdersController < ApplicationController
   def new
-
+    @order = Order.new
   end
 
   def confirm
+    @order = Order.new(order_params)
+
     @cart_items = current_customer.cart_items
     @total = @cart_items.inject(0) { |sum,item| sum + item.subtotal}
-
   end
 
   def complete
   end
 
   def create
-    order = Order.new(order_params)
-    order.save
-    redirect_to confirm_path
+
   end
 
   def index
