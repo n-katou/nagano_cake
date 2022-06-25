@@ -1,8 +1,7 @@
-<h1>商品詳細</h1>
-
-<div class="container" data-section-id="product" data-section-type="product-page-section" data-reviews-stars="true">
-  <div class="row">
-    <div class="col-lg-6 col-md-7 col-sm-6">
+<div class="container">
+  <h3>商品詳細</h3>
+  <div class="row text-center">
+    <div class="col-md-4">
       <p>
         <% if @item.image.attached? %>
           <%= image_tag @item.image, size: "100x100" %>
@@ -11,7 +10,7 @@
         <% end %>
       </p>
     </div>
-    <div class="col-lg-6 col-md-5 col-sm-6">
+    <div class="col-md-8 mx-auto">
       <table>
         <tr>
           <td>商品名</td>
@@ -33,12 +32,7 @@
           <td>販売ステータス</td>
         </tr>
       </table>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-9">
-      <p class="text-center"><%= link_to "編集する" , edit_admin_item_path(@item.id),class: "btn btn-success" %></p>
+      <%= link_to "編集する" , edit_admin_item_path(@item.id),class: "btn btn-success" %>
     </div>
   </div>
 </div>

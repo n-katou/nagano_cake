@@ -18,55 +18,70 @@
 
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-          <a class="navbar-brand" href="/"><span>LOGO</span></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <% if customer_signed_in? %>
-            <ul class="navbar-nav ml-auto">
-              <li>
-                <%= link_to "マイページ" , my_page_path(current_customer) %>
-              </li>
-              <li>
-                <%= link_to "商品一覧", items_path %>
-              </li>
-              <li>
-                <%= link_to "カート", cart_items_path %>
-              </li>
-              <li>
-                <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
-              </li>
-            </ul>
-            <% elsif admin_signed_in? %>
-              <ul class="navbar-nav ml-auto">
-                <li><%= link_to "商品一覧", admin_items_path,class: "btn btn-secondary" %></li>
-                <li><%= link_to "会員一覧", admin_customers_path, class: "btn btn-secondary" %></li>
-                <li><%= link_to "注文履歴一覧", admin_home_path, class: "btn btn-secondary" %></li>
-                <li><%= link_to "ジャンル一覧", admin_genres_path, class: "btn btn-secondary" %></li>
-                <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete ,class: "btn btn-secondary" %></li>
-              </ul>
-            <% else %>
-             <ul class="navbar-nav ml-auto">
-              <li>
-                <%= link_to "About", about_path %>
-              </li>
-              <li>
-                <%= link_to "商品一覧", items_path %>
-              </li>
-              <li>
-                <%= link_to "新規登録", new_customer_registration_path %>
-              </li>
-              <li>
-                <%= link_to  "ログイン",new_customer_session_path %>
-              </li>
-            </ul>
-            <% end %>
+          <div class="row">
+            <div class="col">
+              <a class="navbar-brand"><p class="text-center"><h2>LOGO</h2></p></a>
+            </div>
+            <div class="col">
+              <% if customer_signed_in? %>
+                <table class= "table">
+                  <tr>
+                    <td>
+                      <%= link_to "マイページ" , my_page_path(current_customer),class: "btn btn-secondary" %>
+                    </td>
+                    <td>
+                      <%= link_to "商品一覧", items_path,class: "btn btn-secondary" %>
+                    </td>
+                    <td>
+                      <%= link_to "カート", cart_items_path,class: "btn btn-secondary" %>
+                    </td>
+                    <td>
+                      <%= link_to "ログアウト", destroy_customer_session_path, method: :delete,class: "btn btn-secondary" %>
+                    </td>
+                  </tr>
+                </table>
+              <% elsif admin_signed_in? %>
+                <table class="table">
+                  <tr>
+                    <td>
+                      <%= link_to "商品一覧", admin_items_path,class: "btn btn-secondary" %>
+                    </td>
+                    <td>
+                      <%= link_to "会員一覧", admin_customers_path, class: "btn btn-secondary" %>
+                    </td>
+                    <td>
+                      <%= link_to "注文履歴一覧", admin_home_path, class: "btn btn-secondary" %>
+                    </td>
+                    <td>
+                      <%= link_to "ジャンル一覧", admin_genres_path, class: "btn btn-secondary" %>
+                    </td>
+                    <td>
+                      <%= link_to "ログアウト", destroy_admin_session_path, method: :delete ,class: "btn btn-secondary" %>
+                    </td>
+                  </tr>
+                </table>
+              <% else %>
+               <table class="table">
+                 <tr>
+                  <td>
+                    <%= link_to "About", about_path,class: "btn btn-secondary" %>
+                  </td>
+                  <td>
+                    <%= link_to "商品一覧", items_path,class: "btn btn-secondary" %>
+                  </td>
+                  <td>
+                    <%= link_to "新規登録", new_customer_registration_path,class: "btn btn-secondary" %>
+                  </td>
+                  <td>
+                    <%= link_to  "ログイン",new_customer_session_path,class: "btn btn-secondary" %>
+                  </td>
+                 </tr>
+              </table>
+              <% end %>
+            </div>
           </div>
         </div>
-      </nav>
     </header>
     <%= yield %>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
