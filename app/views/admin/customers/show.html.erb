@@ -7,6 +7,11 @@
 <h3>住所</h3> <%= @customer.address %>
 <h3>電話番号</h3> <%= @customer.telephone_number %>
 <h3>メールアドレス</h3> <%= @customer.email %>
-<h3>会員ステータス</h3> <%= @customer.is_active %>
+<h3>会員ステータス</h3>
+  <% if @customer.is_active == true %>
+  <p>有効</p>
+  <% elsif @customer.is_active == false %>
+  <p>退会</p>
+  <% end %>
 
  <h3><%= link_to "編集する" ,edit_admin_customer_path(@customer.id) %> <%= link_to "注文履歴一覧を見る", admin_home_path %></h3>

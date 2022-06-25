@@ -12,5 +12,6 @@ class Customer < ApplicationRecord
           def address_display
             "〒"+ postal_code + "  " + address + "   " + first_name + last_name
           end
+          
 
 end

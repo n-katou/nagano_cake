@@ -24,17 +24,19 @@ class Public::CartItemsController < ApplicationController
     if CartItem.find_by(item_id: params[:cart_item][:item_id])
       @cart_item = CartItem.find_by(item_id: params[:cart_item][:item_id])
       @cart_item.amount = @cart_item.amount.to_i + @new_cart_item.amount.to_i
-      @cart_item.update(amount:@cart_item.amount)
+      @cart_item.update(amount :@cart_item.amount)
       redirect_to cart_items_path
     else
       if @new_cart_item.save
         redirect_to cart_items_path
       else
-       render :index
+      render :index
       end
     end
 
   end
+
+
 
   private
 
