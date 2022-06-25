@@ -21,6 +21,7 @@ class Public::CartItemsController < ApplicationController
 
   def create
     @new_cart_item = CartItem.new(cart_item_params)
+    @new_cart_item.customer_id = current_customer.id
     if CartItem.find_by(item_id: params[:cart_item][:item_id])
       @cart_item = CartItem.find_by(item_id: params[:cart_item][:item_id])
       @cart_item.amount = @cart_item.amount.to_i + @new_cart_item.amount.to_i

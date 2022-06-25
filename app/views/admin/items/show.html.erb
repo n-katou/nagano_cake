@@ -12,11 +12,33 @@
       </p>
     </div>
     <div class="col-lg-6 col-md-5 col-sm-6">
-            <h4>商品名         <%= @item.name %></h4>
-            <h4>商品説明       <%= @item.introduction %></h4>
-            <h4>ジャンル       <%= @item.genre.name %></h4>
-            <h4>販売ステータス</h4>
-      <%= link_to "編集する" , edit_admin_item_path(@item.id) %>
+      <table>
+        <tr>
+          <td>商品名</td>
+          <td><%= @item.name %></td>
+        </tr>
+        <tr>
+          <td>商品説明</td>
+          <td><%= @item.introduction %></td>
+        </tr>
+        <tr>
+          <td>ジャンル</td>
+          <td><%= @item.genre.name %></td>
+        </tr>
+        <tr>
+          <td>税込価格<br>(税込価格)</td>
+          <td><%= @item.price.to_s(:delimited) %>(<%= (@item.price * 1.1).floor.to_s(:delimited) %>)円</td>
+        </tr>
+        <tr>
+          <td>販売ステータス</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-9">
+      <p class="text-center"><%= link_to "編集する" , edit_admin_item_path(@item.id),class: "btn btn-success" %></p>
     </div>
   </div>
 </div>
