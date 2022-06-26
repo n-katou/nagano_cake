@@ -17,4 +17,9 @@ class Item < ApplicationRecord
   def with_tax_price
     (price * 1.1).to_i
   end
+
+  validates :name,{presence: true,length: {maximum:20}}
+  validates :introduction,{presence: true,length: {maximum:50}}
+  validates :price,{presence: true,numericality: true}
+  validates :is_active,{inclusion: { in: [true, false] }}
 end
