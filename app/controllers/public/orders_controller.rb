@@ -13,6 +13,7 @@ class Public::OrdersController < ApplicationController
 
     @cart_items = current_customer.cart_items
     @total = @cart_items.inject(0) { |sum,item| sum + item.subtotal}
+    @postage = 800
   end
 
   def complete
@@ -37,10 +38,12 @@ class Public::OrdersController < ApplicationController
 
   def index
     @orders = current_customer.orders
+    @postage = 800
   end
 
   def show
     @order = Order.find(params[:id])
+    @postage = 800
   end
 
   private

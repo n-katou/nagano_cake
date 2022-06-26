@@ -36,7 +36,15 @@
         <tbody>
           <tr>
             <td>商品合計</td>
-            <td><%= @order.amount_claimed.to_s(:delimited) %></td>
+            <td><%= @order.amount_claimed %>円</td>
+          </tr>
+          <tr>
+            <td>送料</td>
+            <td><%= @postage %>円</td>
+          </tr>
+          <tr>
+            <td>請求金額合計</td>
+            <td><%= @order.amount_claimed + @postage %>円</td>
           </tr>
         </tbody>
       </table>
