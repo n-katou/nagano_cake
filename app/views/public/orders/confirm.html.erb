@@ -45,8 +45,7 @@
     <p><%= @order.payment_method_i18n %></p>
   </div>
   <div class="row">
-    <p><strong>お届け先</strong></p>
-    <p><%= @order.postal_code %> <%= @order.address %> <%= @order.name %></p>
+    <p><strong>お届け先</strong>  〒<%= @order.postal_code %> <%= @order.address %> <%= @order.name %></p>
   </div>
 
   <div class="row text-center">
