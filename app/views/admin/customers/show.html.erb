@@ -1,17 +1,50 @@
-<h1><%= @customer.first_name + @customer.last_name %></h1>
-
-<h3>会員ID</h3> <%= @customer.id %>
-<h3>氏名</h3> <%= @customer.first_name + @customer.last_name %>
-<h3>カナ</h3> <%= @customer.first_name_kana + @customer.last_name_kana %>
-<h3>郵便番号</h3> <%= @customer.postal_code %>
-<h3>住所</h3> <%= @customer.address %>
-<h3>電話番号</h3> <%= @customer.telephone_number %>
-<h3>メールアドレス</h3> <%= @customer.email %>
-<h3>会員ステータス</h3>
-  <% if @customer.is_active == true %>
-  <p>有効</p>
-  <% elsif @customer.is_active == false %>
-  <p>退会</p>
-  <% end %>
-
- <h3><%= link_to "編集する" ,edit_admin_customer_path(@customer.id) %> <%= link_to "注文履歴一覧を見る", admin_home_path %></h3>
+<div class="container">
+  <h1><%= @customer.first_name + @customer.last_name %>さんの会員詳細</h1>
+  <div class="row">
+    <div class="col">
+      <table class="table">
+        <tbody>
+          <tr>
+            <td>会員ID</td>
+            <td><%= @customer.id %></td>
+          </tr>
+          <tr>
+            <td>氏名</td>
+            <td><%= @customer.first_name + @customer.last_name %></td>
+          </tr>
+          <tr>
+            <td>カナ</td>
+            <td><%= @customer.first_name_kana + @customer.last_name_kana %></td>
+          </tr>
+          <tr>
+            <td>郵便番号</td>
+            <td><%= @customer.postal_code %></td>
+          </tr>
+          <tr>
+            <td>住所</td>
+            <td><%= @customer.address %></td>
+          </tr>
+          <tr>
+            <td>電話番号</td>
+            <td><%= @customer.telephone_number %></td>
+          </tr>
+          <tr>
+            <td>メールアドレス</td>
+            <td><%= @customer.email %></td>
+          </tr>
+          <tr>
+            <td>会員ステータス</td>
+            <td>
+              <% if @customer.is_active == true %>
+                <p>有効</p>
+              <% elsif @customer.is_active == false %>
+                <p>退会</p>
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <h3><%= link_to "編集する" ,edit_admin_customer_path(@customer.id),class: "btn btn-success" %> <%= link_to "注文履歴一覧を見る", admin_home_path,class: "btn btn-primary" %></h3>
+</div>

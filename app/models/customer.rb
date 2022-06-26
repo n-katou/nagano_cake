@@ -17,11 +17,7 @@ class Customer < ApplicationRecord
           validates :last_name,{presence: true,length: {maximum:15}}
           validates :first_name_kana,{presence: true,length: {maximum:15}}
           validates :last_name_kana,{presence: true,length: {maximum:15}}
-          validates :email,{presence: true,length: {maximum:40}}
-          validates :encrypted_password,{presence: true,length: {maximum:15}}
           validates :postal_code, {presence: true,length: {maximum:15}}
           validates :address,{presence: true,length: {maximum:40}}
           validates :telephone_number, {presence: true,length: {maximum:20}}
-          validates :is_active,{inclusion: { in: [true, false] }}
-
 end

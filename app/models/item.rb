@@ -20,6 +20,5 @@ class Item < ApplicationRecord
 
   validates :name,{presence: true,length: {maximum:20}}
   validates :introduction,{presence: true,length: {maximum:50}}
-  validates :price,{presence: true,numericality: true}
-  validates :is_active,{inclusion: { in: [true, false] }}
+  validates :price,{presence: true}
 end

@@ -5,7 +5,7 @@
     <%= form_with model: @order, url: confirm_path, method: :post do |f| %>
     <div class="col">
       <p>
-        <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
+        <%= f.radio_button :payment_method, Order.payment_methods.key(0), {:checked => true} %>
         <%= f.label :payment_method, Order.payment_methods_i18n[:credit_card] %>
       </p>
       <p>
@@ -14,7 +14,7 @@
       </p>
       <p><strong>お届け先</strong></p>
       <p>
-        <%= f.radio_button :select_address,"0" %>
+        <%= f.radio_button :select_address,"0", {:checked => true} %>
         <%= f.label :address, "ご自身の住所" %><br>
         <%= current_customer.postal_code %> <%= current_customer.address %> <%= current_customer.first_name %><%= current_customer.last_name %>
       </p>
