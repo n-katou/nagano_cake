@@ -10,11 +10,4 @@ class Order < ApplicationRecord
 
   enum payment_method: { credit_card: 0, transfer: 1 }
 
-  validates :name, {presence: true,length: {maximum:15}}
-  validates :postal_code, {presence: true,length: {maximum:15}}
-  validates :address,{presence: true,length: {maximum:40}}
-  validates :amount_claimed,{presence: true,numericality: true}
-  validates :postage,{presence: true,numericality: true}
-  validates :payment_method,{inclusion: {in: Order.payment_methods.keys}}
-
 end

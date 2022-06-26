@@ -13,11 +13,17 @@
   <div class="row-md-4">
     <div class="col">
       <% @items.each do |item| %>
-        <%= link_to item_path(item.id) do %>
-          <%= image_tag item.image,size: "100x100" %><br>
-        <% end %>
-        <%= item.name %><br>
-        <%= item.price %><br>
+      <table class="table">
+        <tbody>
+          <tr>
+              <%= link_to item_path(item.id) do %>
+              <%= image_tag item.image,size: "100x100" %><br>
+              <% end %>
+              <%= item.name %><br>
+              <%= item.price %><br>
+          </tr>
+        </tbody>
+      </table>
       <% end %>
     </div>
   </div>
